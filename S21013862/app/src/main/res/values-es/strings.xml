@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_send">Enviar</string>
+    <string name="hello_world">Hola</string>
+    <string name="write_her">Escribe aquí</string>
+    <string name="your_name">Tu nombre</string>
+    <string name="message_write_your_name">Escribe tu nombre</string>
+    <string name = "Welcome_message">Hola %s ! bienvenido</string>
+</resources>

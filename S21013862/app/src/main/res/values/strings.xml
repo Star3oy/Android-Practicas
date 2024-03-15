@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Practica Clase</string>
+    <string name="btn_send">send</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="write_her">write her</string>
+    <string name="your_name">Your Name</string>
+    <string name="message_write_your_name">Write your name</string>
+    <string name = "Welcome_message">Hi %s ! welcome</string>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name" translatable="false">PracticaFormulario</string>
+    <string name="nombre">Name</string>
+    <string name="fecha_de_nacimiento">Birth Date</string>
+    <string name="n_mero_telef_nico">Phone Number</string>
+    <string name="correo_electr_nico">Email</string>
+    <string name="contrase_a">Password</string>
+    <string name="repetir_contrase_a">Repeat Password</string>
+    <string name="registrar">Register</string>
+    <string name="limpiar">Clean Form</string>
+    <string name="nombre_incorrecto">Name is incorrect</string>
+    <string name="fecha_de_nacimiento_incorrecta">Birth day is incorrect</string>
+    <string name="email_incorrecto">Email is incorrect</string>
+    <string name="constrase_a_inv_lida">Password is invalid</string>
+    <string name="la_contrase_as_no_coinciden">Passwords do not match</string>
+    <string name="registro_exitoso">Registration successful</string>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>
