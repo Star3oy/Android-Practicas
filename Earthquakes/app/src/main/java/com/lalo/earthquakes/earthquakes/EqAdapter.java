@@ -4,15 +4,14 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lalo.earthquakes.Earthquake;
 import com.lalo.earthquakes.databinding.EqListItemBinding;
 
 public class EqAdapter extends ListAdapter<Earthquake, EqAdapter.EqViewHolder> {
-
     public static final DiffUtil.ItemCallback<Earthquake> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Earthquake>() {
                 @Override

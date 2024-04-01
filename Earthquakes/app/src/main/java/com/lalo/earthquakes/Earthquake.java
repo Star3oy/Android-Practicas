@@ -1,4 +1,4 @@
-package com.lalo.earthquakes.earthquakes;
+package com.lalo.earthquakes;
 
 import java.util.Objects;
 

@@ -18,7 +18,6 @@ public class ApliClient {
             .build();
 
     private Service service;
-
     private static  final ApliClient apiClient = new ApliClient();
 
     public static ApliClient getInstance() {
