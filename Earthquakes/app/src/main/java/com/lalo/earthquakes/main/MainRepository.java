@@ -1,4 +1,6 @@
-package com.lalo.earthquakes.earthquakes;
+package com.lalo.earthquakes.main;
+
+import androidx.lifecycle.LiveData;
 
 import com.lalo.earthquakes.Earthquake;
 import com.lalo.earthquakes.api.ApliClient;
@@ -21,7 +23,7 @@ public class MainRepository {
         return database.eqDAO().getEarthquakes();
     }
 
-    public void downloadAndSaveEarthquakes(){
+    public void downloadAndSaveEarthquakes(DownloadStatusListener downloadStatusListener){
         ApliClient.Service service = ApliClient.getInstance().getService();
         service.getEarthquakes().enqueue(new Callback<EarthquakeJSONResponse>() {
             @Override
@@ -31,11 +33,12 @@ public class MainRepository {
                 EqDatabase.databaseWriteExecutor.execute(() -> {
                     database.eqDAO().insertAll(earthquakeList);
                 });
+                downloadStatusListener.downloadSuccess();
             }
 
             @Override
             public void onFailure(Call<EarthquakeJSONResponse> call, Throwable t) {
-
+                downloadStatusListener.downloadError(t.getMessage());
             }
         });
     }
@@ -56,6 +59,22 @@ public class MainRepository {
         return eqList;
     }
 
+    public interface DownloadStatusListener{
+        void downloadSuccess();
+        void downloadError(String message);
+    }
+
+    ApliClient.Service service = ApliClient.getInstance().getService();
+    public void createEarthquake(Earthquake earthquake,
+                                 Callback<EarthquakeJSONResponse> callback) {
+        Call<EarthquakeJSONResponse> call = service.createEarthquake(earthquake);
+        call.enqueue(callback);
+    }
+    public void updateEarthquake(int id, Earthquake earthquake,
+                                 Callback<EarthquakeJSONResponse> callback) {
+        Call<EarthquakeJSONResponse> call = service.updateEarthquake(id, earthquake);
+        call.enqueue(callback);
+    }
 
 
 }

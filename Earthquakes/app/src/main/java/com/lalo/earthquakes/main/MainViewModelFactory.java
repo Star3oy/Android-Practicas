@@ -1,4 +1,4 @@
-package com.lalo.earthquakes.earthquakes;
+package com.lalo.earthquakes.main;
 import android.app.Application;
 
 import androidx.annotation.NonNull;

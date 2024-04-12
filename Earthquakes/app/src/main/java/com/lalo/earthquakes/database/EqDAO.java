@@ -12,29 +12,19 @@ import com.lalo.earthquakes.Earthquake;
 import java.util.List;
 
 @Dao
-public class EqDAO {
+public interface EqDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<Earthquake> eqList) {
-
-    }
+    void insertAll(List<Earthquake> eqList);
 
     @Query("SELECT * FROM earthquakes")
-    LiveData<List<Earthquake>> getEarthquakes() {
-        return null;
-    }
+    LiveData<List<Earthquake>> getEarthquakes();
 
     @Query("SELECT * FROM earthquakes WHERE magnitude > :mag")
-    LiveData<List<Earthquake>> getEarthquakesWithMagnitudeAbove(double mag) {
-        return null;
-    }
+    LiveData<List<Earthquake>> getEarthquakesWithMagnitudeAbove(double mag) ;
 
     @Delete
-    void deleteEarthquake(Earthquake earthquake) {
-
-    }
+    void deleteEarthquake(Earthquake earthquake);
 
     @Update
-    void updateEarthquake(Earthquake earthquake) {
-
-    }
+    void updateEarthquake(Earthquake earthquake);
 }

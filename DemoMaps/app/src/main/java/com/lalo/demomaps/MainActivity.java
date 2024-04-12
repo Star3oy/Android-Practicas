@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         mMapView = binding.mapView;
         mMapView.onCreate(savedInstanceState);
         mMapView.getMapAsync(this);

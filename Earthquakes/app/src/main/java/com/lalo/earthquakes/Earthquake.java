@@ -1,15 +1,57 @@
 package com.lalo.earthquakes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
-public class Earthquake {
+@Entity(tableName =  "earthquakes")
+public class Earthquake implements Parcelable {
+
+    @PrimaryKey
+    @NonNull
     private String id;
     private String place;
     private double magnitude;
     private long time;
     private double longitude;
-
     private double latitude;
+
+    public Earthquake(String id, String place, double magnitude, long time, double longitude, double latitude) {
+
+        this.id = id;
+        this.place = place;
+        this.magnitude = magnitude;
+        this.time = time;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+
+    protected Earthquake(Parcel in) {
+        id = in.readString();
+        place = in.readString();
+        magnitude = in.readDouble();
+        time = in.readLong();
+        longitude = in.readDouble();
+        latitude = in.readDouble();
+    }
+
+    public static final Creator<Earthquake> CREATOR = new Creator<Earthquake>() {
+        @Override
+        public Earthquake createFromParcel(Parcel in) {
+            return new Earthquake(in);
+        }
+
+        @Override
+        public Earthquake[] newArray(int size) {
+            return new Earthquake[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -47,7 +89,7 @@ public class Earthquake {
         return longitude;
     }
 
-    public void setLoingitude(double longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -56,15 +98,6 @@ public class Earthquake {
     }
 
     public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Earthquake(String id, String place, double magnitude, long time, double loingitude, double latitude) {
-        this.id = id;
-        this.place = place;
-        this.magnitude = magnitude;
-        this.time = time;
-        this.longitude = loingitude;
         this.latitude = latitude;
     }
 
@@ -79,5 +112,20 @@ public class Earthquake {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getPlace(), getMagnitude(), getTime(), getLongitude(), getLatitude());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int flags) {
+        parcel.writeString(id);
+        parcel.writeString(place);
+        parcel.writeDouble(magnitude);
+        parcel.writeLong(time);
+        parcel.writeDouble(longitude);
+        parcel.writeDouble(latitude);
     }
 }

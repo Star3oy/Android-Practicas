@@ -14,9 +14,9 @@
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
-            android:layout_width="304dp"
-            android:layout_height="521dp"
-            tools:layout_editor_absoluteX="57dp"
+            android:layout_width="337dp"
+            android:layout_height="613dp"
+            tools:layout_editor_absoluteX="37dp"
             tools:layout_editor_absoluteY="63dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
